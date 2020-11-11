@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link foglio CSS -->
+    <link rel="stylesheet" href="./style.css">
+    
+    <!-- link fontawsome -->
+    <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+        crossorigin="anonymous" />
+    
+
+    <!-- link Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+       <div class="slider">
+            <div class="sx">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="images">
+                <!-- <img src="./img/image1.jpg" alt=""> -->
+                <img :src="photos[0]" alt="foto">
+            </div>
+
+            <div class="dx" @click = "nextPhoto">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+
+            <div class="nav">
+                <i class="fas fa-circle active"></i>
+                <i class="fas fa-circle"></i>
+                <i class="fas fa-circle"></i>
+                <i class="fas fa-circle"></i>
+            </div>
+       </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>
