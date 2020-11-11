@@ -19,15 +19,15 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="app">
-       <div class="slider">
+    <div id="app">
+       <div class="slider" @mouseenter="fermaLoop" @mouseleave="inizioLoop">
             <div class="sx">
-                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-left" @click="prevPhoto"></i>
             </div>
 
             <div class="images">
                 <!-- <img src="./img/image1.jpg" alt=""> -->
-                <img :src="photos[0]" alt="foto">
+                <img v-bind:src="photos[indexPhoto]" alt="foto">
             </div>
 
             <div class="dx" @click = "nextPhoto">
@@ -35,10 +35,23 @@
             </div>
 
             <div class="nav">
-                <i class="fas fa-circle active"></i>
+                <!-- <i class="fas fa-circle active"></i>
                 <i class="fas fa-circle"></i>
                 <i class="fas fa-circle"></i>
-                <i class="fas fa-circle"></i>
+                <i class="fas fa-circle"></i> -->
+               
+                <!-- rendo le <i> più dinamico: creo le i quante sono le foto! -->
+                <i 
+                class="fas fa-circle"
+                v-for="(photo, index) in photos"
+                :class="index == indexPhoto ? 'active': '' "
+                @click="setPhoto(index)"
+                ></i>
+
+                <!-- :class="index == indexPhoto ? 'active': '' "
+                if(index == indexPhoto){
+                    active; ovvero aggiungi la classe 'active' all' elemento <i>
+                } -->
             </div>
        </div>
     </div>
